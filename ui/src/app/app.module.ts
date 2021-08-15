@@ -5,14 +5,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AgGridModule } from "ag-grid-angular";
 import { HomeComponent } from './components/home/home.component';
+import { CuadriculaComponent } from './components/cuadricula/cuadricula.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    CuadriculaComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     AgGridModule.withComponents([])
   ],

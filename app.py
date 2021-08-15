@@ -1,12 +1,14 @@
 from flask import Flask, jsonify, request
 from flask_sqlalchemy import SQLAlchemy
 from marshmallow import Schema, fields
+from flask_cors import CORS
 
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://postgres:postgres@localhost:5434/recipes"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 db = SQLAlchemy(app)
+cors = CORS(app, resources={r"/recipes*": {"origins": "*"}})
 
 
 class Recipe(db.Model):
