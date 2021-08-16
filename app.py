@@ -49,7 +49,19 @@ def get_all_recipes():
     data = serializer.dump(recipes)
     logging.error(data)
     data2 = {"loco": "hola"}
-    return jsonify(data, data2)
+    changes = [
+        {
+            "description": "Add water, cut and squiz two lemons",
+            "id": 4,
+            "name": "Lemonade"
+        },
+        {
+            "description": "Cook rice and add chopped chicked",
+            "id": 6,
+            "name": "Chicken Rice"
+        }
+    ];
+    return jsonify(data, changes);
 
 @app.route("/recipes", methods=["POST"])
 def create_a_recipe():
