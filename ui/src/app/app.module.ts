@@ -7,12 +7,14 @@ import { AgGridModule } from "ag-grid-angular";
 import { HomeComponent } from './components/home/home.component';
 import { CuadriculaComponent } from './components/cuadricula/cuadricula.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AthletesComponent } from './components/athletes/athletes.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    CuadriculaComponent
+    CuadriculaComponent,
+    AthletesComponent
   ],
   imports: [
     BrowserModule,
