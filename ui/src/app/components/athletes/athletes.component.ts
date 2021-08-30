@@ -37,11 +37,15 @@ export class AthletesComponent implements OnInit {
   dataSource: IDatasource = {
     getRows: (params: IGetRowsParams) => {
       this.apiService().subscribe(data => {
-        params.successCallback(
-          data,
-          101
+        console.log(
+          'asking for ' + params.startRow + ' to ' + params.endRow
         );
-        console.log(data);
+        let rowsThisPage = data.slice(params.startRow, params.endRow);
+        params.successCallback(
+          rowsThisPage,
+          data.length
+        );
+        console.log(rowsThisPage);
       });
     }
   }
