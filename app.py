@@ -2,6 +2,7 @@ from flask import Flask, jsonify, request
 from flask_sqlalchemy import SQLAlchemy
 from marshmallow import Schema, fields
 from flask_cors import CORS
+import logging
 
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://postgres:postgres@localhost:5434/recipes"
@@ -46,7 +47,21 @@ def get_all_recipes():
     recipes = Recipe.get_all()
     serializer = RecipeSchema(many=True)
     data = serializer.dump(recipes)
-    return jsonify(data)
+    logging.error(data)
+    data2 = {"loco": "hola"}
+    changes = [
+        {
+            "description": "Add water, cut and squiz two lemons",
+            "id": 4,
+            "name": "Lemonade"
+        },
+        {
+            "description": "Cook rice and add chopped chicked",
+            "id": 6,
+            "name": "Chicken Rice"
+        }
+    ];
+    return jsonify(data, changes);
 
 @app.route("/recipes", methods=["POST"])
 def create_a_recipe():

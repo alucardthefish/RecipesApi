@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Color } from 'ag-grid-community';
 import { Observable } from 'rxjs';
 import { Recipe } from 'src/app/models/Recipe';
 import { RecipeService } from 'src/app/services/recipe.service';
@@ -14,9 +15,24 @@ export class CuadriculaComponent implements OnInit {
   gridApi : any;
   gridColumnApi : any;
 
+  changes: any;
+
   columnDefs = [
     {
-      field: "name"
+      field: "name",
+      cellStyle: (params: any) => {
+        console.log(params);
+        if (this.changes) {
+          for (let index = 0; index < this.changes.length; index++) {
+            const rowChanged = this.changes[index];
+            if (params.data.id == rowChanged.id) {
+              return {color: "red", background: "green"};
+            }
+            
+          }
+        }
+        return null;
+      }
     },
     {
       field: "description",
@@ -38,13 +54,15 @@ export class CuadriculaComponent implements OnInit {
   ngOnInit(): void {
     this.recipeService.getRecipes().subscribe(recipes => {
       console.log(recipes);
-      this.rowData = recipes;
+      this.rowData = recipes[0];
+      this.changes = recipes[1];
     });
   }
 
   onGridReady(params : any) {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
+    console.log("Exec onGridReady");
 
   }
 
