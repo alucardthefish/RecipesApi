@@ -11,6 +11,7 @@ import { Observable } from 'rxjs';
 export class AthletesComponent implements OnInit {
 
   gridApi: any;
+  counter = 0;
 
   columnDefs = [
     {
@@ -57,12 +58,35 @@ export class AthletesComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log("I'm not empty anymore");
   }
 
   onGridReady(params: any) {
     this.gridApi = params.api;
     this.gridApi.sizeColumnsToFit();
     this.gridApi.setDatasource(this.dataSource);
+  }
+
+  public goTo81UpTo100Rows() {
+    console.log("Exect");
+    this.counter = 1;
+    let myDataSource = {
+      getRows: (params: any) => {
+        this.apiService().subscribe(data => {
+          if (this.counter == 1) {
+            params.startRow = 80;
+            params.endRow = 100;
+          }
+          console.log(
+            '2: asking for ' + params.startRow + ' to ' + params.endRow + ' counter: ' + this.counter
+          );
+          let rows = data.slice(params.startRow, params.endRow);
+          params.successCallback(rows, data.length);
+        });
+      }
+    }
+    //this.gridApi.setDatasource(myDataSource);
+    this.counter++;
   }
 
 }
