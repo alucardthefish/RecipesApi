@@ -56,7 +56,7 @@ def update_recipe(id):
     data = request.get_json()
     recipe_to_update.name = data.get("name")
     recipe_to_update.description = data.get("description")
-    db.session.commit()
+    recipe_to_update.save()
 
     serializer = RecipeSchema()
     recipe_data = serializer.dump(recipe_to_update)
