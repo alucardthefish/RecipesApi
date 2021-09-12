@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "cuadricula.component.scss"
+    ],
+    "names": [],
+    "file": "cuadricula.component.css"
+}
