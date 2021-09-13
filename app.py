@@ -4,10 +4,11 @@ import logging
 
 from app.models.recipe import Recipe
 from app.serde.recipe_schema import RecipeSchema
-from app import get_app, get_db
+from app import get_app, get_db, get_api, init_app
 
 app = get_app()
 db = get_db(app)
+api = get_api(app)
 cors = CORS(app, resources={r"/recipes*": {"origins": "*"}})
 
 
@@ -68,6 +69,9 @@ def delete_recipe(id):
     recipe_to_delete = Recipe.get_by_id(id)
     recipe_to_delete.delete()
     return jsonify({"message": "Deleted"}), 204
+
+
+init_app(app)
 
 
 if __name__ == "__main__":

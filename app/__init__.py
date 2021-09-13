@@ -1,5 +1,6 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from flask_restful import Api
 
 
 def get_app():
@@ -15,4 +16,19 @@ def get_db(flask_app):
     return SQLAlchemy(flask_app)
 
 
+def get_api(flask_app):
+    return Api(flask_app)
+
+
 db = get_db(get_app())
+api = get_api(get_app())
+
+
+def init_app(app):
+    db.init_app(app)
+
+    from .controllers import recipes_blueprint
+
+    app.register_blueprint(recipes_blueprint)
+
+    return app
