@@ -1,4 +1,7 @@
 from app import db
+from sqlalchemy.ext.hybrid import hybrid_property
+from sqlalchemy import inspect
+import logging
 
 
 class Recipe(db.Model):
@@ -24,3 +27,20 @@ class Recipe(db.Model):
     def delete(self):
         db.session.delete(self)
         db.session.commit()
+
+    @hybrid_property
+    def is_short_name(self):
+        # info = [getattr(self, k) for (k, v) in vars(self.__class__).items()]
+        mapper = inspect(self)
+        logging.error(type(mapper))
+        logging.error(mapper.attrs.__dict__)
+        # for col in mapper.attrs:
+        #     if col.key.startswith("name"):
+        #         logging.error(col)
+        #     logging.error(col)
+        # logging.error(mapper)
+        return True
+
+    @hybrid_property
+    def full_recipe(self):
+        return f"({self.name}): {self.description}"

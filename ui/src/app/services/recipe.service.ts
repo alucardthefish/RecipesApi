@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from 'rxjs';
 import { Recipe } from '../models/Recipe';
+import { JWTtp } from '../common/jwttp';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RecipeService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private jwttp: JWTtp) { }
 
   getRecipes(): Observable<Recipe[]> {
     const httpOptions = {
@@ -21,5 +22,10 @@ export class RecipeService {
       })
     };
     return this.http.get<Recipe[]>("http://localhost:5000/recipes", httpOptions);
+  }
+
+  public getVeganRecipes() {
+    // return this.http.get("http://localhost:5000/vegandarina/recipes/");
+    return this.jwttp.get("/vegandarina/recipes/");
   }
 }

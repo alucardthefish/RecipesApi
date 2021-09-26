@@ -1,4 +1,4 @@
-from flask import jsonify, request
+from flask import jsonify, request, render_template
 from flask_cors import CORS
 import logging
 
@@ -12,9 +12,16 @@ api = get_api(app)
 cors = CORS(app, resources={r"/recipes*": {"origins": "*"}})
 
 
+@app.route("/", methods=["GET"])
+def root():
+    return render_template("index.html")
+
+
 @app.route("/recipes", methods=["GET"])
 def get_all_recipes():
-    recipes = Recipe.get_all()
+    # recipes = Recipe.get_all()
+    query = Recipe.query.filter(Recipe.is_short_name == True)
+    recipes = query.all()
     serializer = RecipeSchema(many=True)
     data = serializer.dump(recipes)
     logging.error(data)

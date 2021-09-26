@@ -52,11 +52,14 @@ export class CuadriculaComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.recipeService.getRecipes().subscribe(recipes => {
-      console.log(recipes);
-      this.rowData = recipes[0];
-      this.changes = recipes[1];
+    this.recipeService.getVeganRecipes().subscribe(recipes => {
+      this.rowData = recipes;
     });
+    // this.recipeService.getRecipes().subscribe(recipes => {
+    //   console.log(recipes);
+    //   this.rowData = recipes[0];
+    //   this.changes = recipes[1];
+    // });
   }
 
   onGridReady(params : any) {
