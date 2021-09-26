@@ -4,7 +4,12 @@ from flask_restful import Api
 
 
 def get_app():
-    app = Flask(__name__)
+    app = Flask(
+        __name__,
+        template_folder="../templates",
+        static_url_path="",
+        static_folder="../static",
+    )
     app.config[
         "SQLALCHEMY_DATABASE_URI"
     ] = "postgresql://postgres:postgres@localhost:5434/recipes"
