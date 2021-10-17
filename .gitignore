@@ -4,3 +4,4 @@ node_modules
 static/*
 templates/*
 .idea
+scripts/*
