@@ -6,7 +6,7 @@ from flask_restful import Api
 def get_app():
     app = Flask(
         __name__,
-        template_folder="../templates",
+        template_folder="../static",
         static_url_path="",
         static_folder="../static",
     )
