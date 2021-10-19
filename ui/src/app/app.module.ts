@@ -8,6 +8,7 @@ import { HomeComponent } from './components/home/home.component';
 import { CuadriculaComponent } from './components/cuadricula/cuadricula.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AthletesComponent } from './components/athletes/athletes.component';
+import { HashLocationStrategy, LocationStrategy } from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -22,7 +23,12 @@ import { AthletesComponent } from './components/athletes/athletes.component';
     AppRoutingModule,
     AgGridModule.withComponents([])
   ],
-  providers: [],
+  providers: [
+    {
+      provide: LocationStrategy,
+      useClass: HashLocationStrategy
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

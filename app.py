@@ -9,7 +9,8 @@ from app import get_app, get_db, get_api, init_app
 app = get_app()
 db = get_db(app)
 api = get_api(app)
-cors = CORS(app, resources={r"/recipes*": {"origins": "*"}})
+# cors = CORS(app, resources={r"/recipes*": {"origins": "*"}})
+cors = CORS(app)
 
 
 @app.route("/", methods=["GET"])

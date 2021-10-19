@@ -13,7 +13,7 @@ export interface IRequestOptions {
     body?: any;
 }
 
-const apiUrl = "localhost:5000"
+const apiUrl = "http://localhost:5000"
 
 @Injectable({
     providedIn: 'root'
