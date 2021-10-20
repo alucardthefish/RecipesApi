@@ -6,5 +6,10 @@
     <p>Some info here about simple users</p>
     <div class="form-div">
         Form for creation of users here
+        <ol>
+            <li *ngFor="let person of filterByZodiac">
+                {{ person.name }} {{ person.apellidos }}
+            </li>
+        </ol>
     </div>
 </section>
