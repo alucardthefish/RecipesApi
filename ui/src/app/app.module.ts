@@ -9,13 +9,17 @@ import { CuadriculaComponent } from './components/cuadricula/cuadricula.componen
 import { HttpClientModule } from '@angular/common/http';
 import { AthletesComponent } from './components/athletes/athletes.component';
 import { HashLocationStrategy, LocationStrategy } from "@angular/common";
+import { ParentComponent } from './components/parent/parent.component';
+import { ChildComponent } from './components/child/child.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     CuadriculaComponent,
-    AthletesComponent
+    AthletesComponent,
+    ParentComponent,
+    ChildComponent
   ],
   imports: [
     BrowserModule,
