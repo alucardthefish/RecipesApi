@@ -1,1 +1,5 @@
-<app-child [childMessage]="'Hello from parent'"></app-child>
+<app-child
+    [childMessage]="'Hello from parent'"
+    (messageEvent)="receiveMessage($event)"
+>
+</app-child>

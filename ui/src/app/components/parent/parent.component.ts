@@ -13,4 +13,8 @@ export class ParentComponent implements OnInit {
     console.log("");
   }
 
+  receiveMessage(msg) {
+    alert(msg);
+  }
+
 }
