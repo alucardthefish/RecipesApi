@@ -11,6 +11,7 @@ import { AthletesComponent } from './components/athletes/athletes.component';
 import { HashLocationStrategy, LocationStrategy } from "@angular/common";
 import { ParentComponent } from './components/parent/parent.component';
 import { ChildComponent } from './components/child/child.component';
+import { AnotherChildComponent } from './components/another-child/another-child.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ChildComponent } from './components/child/child.component';
     CuadriculaComponent,
     AthletesComponent,
     ParentComponent,
-    ChildComponent
+    ChildComponent,
+    AnotherChildComponent
   ],
   imports: [
     BrowserModule,
