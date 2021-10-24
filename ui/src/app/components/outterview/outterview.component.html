@@ -2,7 +2,7 @@
 
     <h4>Outterview component</h4>
 
-    <section>
+    <section *ngIf="isFormActive">
         User section
         <p>Some info here about simple users</p>
         <div class="form-div">
@@ -14,5 +14,9 @@
             </ol>
         </div>
     </section>
+
+    <app-innerview></app-innerview>
+
+    <button>Close</button>
 
 </div>

@@ -13,6 +13,7 @@ import { ParentComponent } from './components/parent/parent.component';
 import { ChildComponent } from './components/child/child.component';
 import { AnotherChildComponent } from './components/another-child/another-child.component';
 import { OutterviewComponent } from './components/outterview/outterview.component';
+import { InnerviewComponent } from './components/innerview/innerview.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { OutterviewComponent } from './components/outterview/outterview.componen
     ParentComponent,
     ChildComponent,
     AnotherChildComponent,
-    OutterviewComponent
+    OutterviewComponent,
+    InnerviewComponent
   ],
   imports: [
     BrowserModule,

@@ -9,6 +9,7 @@ import { people } from 'src/app/utils/people';
 export class OutterviewComponent implements OnInit {
 
   public peep = people;
+  public isFormActive = false;
 
   constructor() { }
 

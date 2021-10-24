@@ -1,0 +1,12 @@
+<div class="child-component">
+    <h5>Innerview component</h5>
+    <div>
+        <span>Items: {{ itemsArray }} </span>
+        <span *ngFor="let item of itemsArray">
+            {{ item }} 
+        </span>
+    </div>
+    <button (click)="addItem()">Add item</button>
+    <button (click)="removeItem()">Remove item</button>
+</div>
+
