@@ -24,4 +24,8 @@ export class ParentComponent implements OnInit {
     alert(msg);
   }
 
+  changeValueOnChild(mensaje) {
+    this.anotherChild.message = mensaje;
+  }
+
 }
