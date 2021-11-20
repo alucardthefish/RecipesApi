@@ -5,4 +5,7 @@ import random
 class GreeterView(Resource):
     def get(self):
         greetings = ["Hallo", "Hola", "Hello", "Miaho"]
-        return random.choice(greetings)
+        return {
+            "greeting": random.choice(greetings),
+            "mode": "random",
+        }, 200
