@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from 'src/app/services/data.service';
 import { people } from 'src/app/utils/people';
 
 @Component({
@@ -11,7 +12,7 @@ export class OutterviewComponent implements OnInit {
   public peep = people;
   public isFormActive = false;
 
-  constructor() { }
+  constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
     console.log("Outterview");
@@ -21,6 +22,10 @@ export class OutterviewComponent implements OnInit {
     return this.peep.filter(
       x => x.signo == "Tauro"
     );
+  }
+
+  resetItems() {
+    this.dataService.updateData([]);
   }
 
 }
