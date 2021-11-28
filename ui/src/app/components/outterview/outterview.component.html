@@ -15,7 +15,37 @@
         </div>
     </section>
 
-    <app-innerview></app-innerview>
+    <section>
+        <form #simpleForm="ngForm" (ngSubmit)="getValues(simpleForm.value)">
+            <input type="text" ngModel name="user" placeholder="enter user name">
+            <br><br>
+            <input type="text" ngModel name="age" placeholder="enter user age">
+            <br><br>
+            <input type="text" ngModel name="address" placeholder="enter user address">
+            <br><br>
+            <button>Get user values</button>
+        </form>
+    </section>
+
+    <section>
+        <h2>Formbuild section</h2>
+        <form [formGroup]="employeeForm" (ngSubmit)="onSubit()">
+            <label>
+                Full Name:
+                <input type="text" formControlName="fullName">
+            </label>
+            <label>
+                Email:
+                <input type="text" formControlName="email">
+            </label>
+
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+    <br><br>
+    Full Name: <strong>{{ myFullName }}</strong>
+
+    <app-innerview [state]="myFullName"></app-innerview>
 
     <button (click)="resetItems()">Close</button>
 

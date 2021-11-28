@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
 
 @Component({
@@ -7,6 +7,9 @@ import { DataService } from 'src/app/services/data.service';
   styleUrls: ['./innerview.component.scss']
 })
 export class InnerviewComponent implements OnInit {
+
+  @Input()
+  public state: String;
 
   public itemsArray = [];
 

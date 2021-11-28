@@ -14,6 +14,7 @@ import { ChildComponent } from './components/child/child.component';
 import { AnotherChildComponent } from './components/another-child/another-child.component';
 import { OutterviewComponent } from './components/outterview/outterview.component';
 import { InnerviewComponent } from './components/innerview/innerview.component';
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -31,6 +32,8 @@ import { InnerviewComponent } from './components/innerview/innerview.component';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
     AgGridModule.withComponents([])
   ],
   providers: [
