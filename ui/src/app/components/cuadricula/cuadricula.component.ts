@@ -21,14 +21,13 @@ export class CuadriculaComponent implements OnInit {
     {
       field: "name",
       cellStyle: (params: any) => {
-        console.log(params);
+        // console.log(params);
         if (this.changes) {
           for (let index = 0; index < this.changes.length; index++) {
             const rowChanged = this.changes[index];
             if (params.data.id == rowChanged.id) {
               return {color: "red", background: "green"};
             }
-            
           }
         }
         return null;

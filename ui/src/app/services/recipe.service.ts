@@ -32,4 +32,8 @@ export class RecipeService {
   public addVeganRecipe(recipe) {
     return this.jwttp.post("/vegandarina/recipe/", recipe);
   }
+
+  public addBunchOfRecipes(recipes) {
+    return this.jwttp.post("/vegandarina/recipes/", recipes);
+  }
 }

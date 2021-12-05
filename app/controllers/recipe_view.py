@@ -2,6 +2,7 @@ from flask import jsonify, request
 from flask_restful import Resource
 from app.models.recipe import Recipe
 from app.serde.recipe_schema import RecipeSchema
+from app import db
 
 
 class RecipesView(Resource):
@@ -10,6 +11,17 @@ class RecipesView(Resource):
         serializer = RecipeSchema()
         data = serializer.dump(recipes, many=True)
         return jsonify(data)
+
+    def post(self):
+        bunch_recipes = request.get_json()
+        for recipe in bunch_recipes:
+            tmp_recipe = Recipe(
+                name=recipe.get("name"), description=recipe.get("description")
+            )
+            db.session.add(tmp_recipe)
+
+        db.session.commit()
+        return f"Success: {str(len(bunch_recipes))} records", 201
 
 
 class RecipeView(Resource):

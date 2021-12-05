@@ -67,4 +67,32 @@ export class OutterviewComponent implements OnInit {
     });
   }
 
+  randomRecipe() {
+    const names = ["Receta muy rica", "Severo plato", "Lo mejor en papas", "Te chuparas los dedos", "Carne asada", "Cordon bleu", "Lasagna"];
+    const descs = [
+      "Agrega agua y sal y todo bien todo bien",
+      "Se agrega tomate y legucha al guto y listo",
+      "Solo echele sal a esa mierda que eso queda rico",
+      "Sampele todo lo que quiera pero echele ajo, el ajo es todo"
+    ];
+    // const randNames = names[Math.floor(Math.random() * names.length)];
+    // const randDesc = descs[Math.floor(Math.random() * descs.length)];
+    // const ob = {
+    //   name: randNames, description: randDesc
+    // }
+    let bunchOfRecipes = [];
+    for (let index = 0; index < 1000; index++) {
+      const rNames = names[Math.floor(Math.random() * names.length)];
+      const rDesc = descs[Math.floor(Math.random() * descs.length)];
+      const ob = {
+        name: rNames, description: rDesc
+      }
+      bunchOfRecipes.push(ob);
+    }
+    // console.log(bunchOfRecipes);
+    this.recipeService.addBunchOfRecipes(bunchOfRecipes).subscribe(() => {
+      alert("Bunch of recipes loaded successfully!");
+    })
+  }
+
 }
