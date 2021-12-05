@@ -28,4 +28,8 @@ export class RecipeService {
     // return this.http.get("http://localhost:5000/vegandarina/recipes/");
     return this.jwttp.get("/vegandarina/recipes/");
   }
+
+  public addVeganRecipe(recipe) {
+    return this.jwttp.post("/vegandarina/recipe/", recipe);
+  }
 }

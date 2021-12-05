@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { DataService } from 'src/app/services/data.service';
+import { RecipeService } from 'src/app/services/recipe.service';
 import { people } from 'src/app/utils/people';
 
 @Component({
@@ -14,10 +15,12 @@ export class OutterviewComponent implements OnInit {
   public isFormActive = false;
   public myFullName = ""
 
-  employeeForm: FormGroup
+  employeeForm: FormGroup;
+  recipeForm: FormGroup;
 
   constructor(
     private dataService: DataService,
+    private recipeService: RecipeService,
     private fb: FormBuilder) { }
 
   ngOnInit(): void {
@@ -25,6 +28,11 @@ export class OutterviewComponent implements OnInit {
     this.employeeForm = this.fb.group({
       fullName: [""],
       email: [""]
+    });
+
+    this.recipeForm = this.fb.group({
+      name: [""],
+      description: [""]
     });
 
     this.employeeForm.get("fullName").valueChanges.subscribe(value => {
@@ -48,7 +56,15 @@ export class OutterviewComponent implements OnInit {
   }
 
   onSubit() {
-    console.warn(this.employeeForm.value)
+    console.warn(this.employeeForm.value);
+  }
+
+  recipeOnSubmit() {
+    console.log(this.recipeForm.value);
+    let recipeValues = this.recipeForm.value;
+    this.recipeService.addVeganRecipe(recipeValues).subscribe(res => {
+      console.log(res);
+    });
   }
 
 }

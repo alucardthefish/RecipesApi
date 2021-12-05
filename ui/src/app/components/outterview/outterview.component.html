@@ -15,7 +15,7 @@
         </div>
     </section>
 
-    <section>
+    <section [hidden]="true">
         <form #simpleForm="ngForm" (ngSubmit)="getValues(simpleForm.value)">
             <input type="text" ngModel name="user" placeholder="enter user name">
             <br><br>
@@ -24,6 +24,27 @@
             <input type="text" ngModel name="address" placeholder="enter user address">
             <br><br>
             <button>Get user values</button>
+        </form>
+    </section>
+
+    <section>
+        <form [formGroup]="recipeForm" (ngSubmit)=recipeOnSubmit()>
+            <label for="name">
+                Recipe name:
+                <input type="text" name="name" id="name" formControlName="name">
+            </label>
+            <br><br>
+            <label for="">
+                Description:
+                <textarea
+                    name="description"
+                    id="description" width="200px" height="400px"
+                    formControlName="description">
+                </textarea>
+            </label>
+            <br><br>
+
+            <button type="submit">Add Recipe</button>
         </form>
     </section>
 
