@@ -24,4 +24,8 @@ export class JWTtp {
     public get(url: string, options?: IRequestOptions): any {
         return this.http.get(apiUrl + url, options);
     }
+
+    public post(url: string, body: string, options?: IRequestOptions): any {
+        return this.http.post(apiUrl + url, body, options);
+    }
 }
