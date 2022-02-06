@@ -61,7 +61,7 @@ export class OutterviewComponent implements OnInit {
 
   recipeOnSubmit() {
     console.log(this.recipeForm.value);
-    let recipeValues = this.recipeForm.value;
+    const recipeValues = this.recipeForm.value;
     this.recipeService.addVeganRecipe(recipeValues).subscribe(res => {
       console.log(res);
     });
@@ -80,7 +80,7 @@ export class OutterviewComponent implements OnInit {
     // const ob = {
     //   name: randNames, description: randDesc
     // }
-    let bunchOfRecipes = [];
+    const bunchOfRecipes = [];
     for (let index = 0; index < 1000; index++) {
       const rNames = names[Math.floor(Math.random() * names.length)];
       const rDesc = descs[Math.floor(Math.random() * descs.length)];
@@ -93,6 +93,11 @@ export class OutterviewComponent implements OnInit {
     this.recipeService.addBunchOfRecipes(bunchOfRecipes).subscribe(() => {
       alert("Bunch of recipes loaded successfully!");
     })
+  }
+
+  onerandomfunction() {
+    const somethingalgo = 4;
+    return 'hola mundo'
   }
 
 }
