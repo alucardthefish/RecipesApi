@@ -33,3 +33,11 @@ or you can run:
 ```
 
 for building automatically when update your code
+
+## Manage your node version with nvm
+
+If you find problems with the angular-cli due to node version issues, just install nvm in your system.
+
+### Links of interest
+
+* [Run multiple nodejs versions on the same machine](https://www.loginradius.com/blog/engineering/run-multiple-nodejs-version-on-the-same-machine/)
