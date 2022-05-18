@@ -15,10 +15,10 @@ API for manage recipe collections using Flask, Marshmallow and Postgres.
 
 ## Run the backend api server
 
-Stand on base dir folder en run the following:
+Stand on base directory or folder and run the following:
 
 ```bash
-python app.py
+~ python app.py
 ```
 
 ## Try it out
