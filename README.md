@@ -13,6 +13,14 @@ API for manage recipe collections using Flask, Marshmallow and Postgres.
 ~ pip install -r requirements.txt
 ```
 
+## Run the backend api server
+
+Stand on base dir folder en run the following:
+
+```bash
+python app.py
+```
+
 ## Try it out
 
 Use Postman, or Insomnia Rest, or another similar app for doing your API calls!
